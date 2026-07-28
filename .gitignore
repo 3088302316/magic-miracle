@@ -1,0 +1,13 @@
+# Build outputs and local state
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.pdb
+*.tmp
+*.log
+
+# Local runtime settings
+settings.ini
+
