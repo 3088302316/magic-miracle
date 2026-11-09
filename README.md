@@ -1,37 +1,24 @@
-# magic&miracle
+# magic&miracle 鼠标特效
 
-一款面向 Windows 的卡通鼠标视觉增强工具，提供主题化光标、拖尾、点击、滚轮、拖动和侧键动画。
+给 Windows 鼠标加上主题光标和交互动画。可以单独调整指针造型、配色、拖尾和点击反馈。
 
-## 功能
+**[下载 Windows 安装程序](https://github.com/3088302316/magic-miracle/releases/latest)** · Windows x64
 
-- 六种普通光标造型：蝶翼、焰羽、青叶、星糖、闪电、云旋
-- 固定的向上卡通手形链接光标
-- 暖绒、极简、冷月、银河、樱雾、森屿与自定义配色
-- 拖尾、左右键、双击、中键、滚轮、拖动和侧键反馈
-- 托盘菜单、开机自启和单文件安装程序
-- `Ctrl + Alt + M` 暂停或恢复特效；组合键冲突时自动启用兼容模式
-- 暂停时同时恢复 Windows 默认指针，重新启用后恢复所选卡通光标
-- 游戏或应用隐藏系统光标时自动抑制全部动作特效，重新显示后从当前位置恢复
-- 后台工作与等待状态使用原生 `.ani` 主题动画光标，跟随造型和配色
-- CPU 绘制，不依赖 GPU 渲染
+## 安装与使用
 
-## 安装
+1. 在发布页下载 `magic-miracle-setup.exe`，双击并选择安装位置。
+2. 从开始菜单打开软件。桌面快捷方式和开机自启可在安装时选择。
+3. 在「外观装扮」里换造型或配色，在「性能调节」里调整拖尾和动画刷新。
+4. 按 **Ctrl + Alt + M** 暂停或恢复特效。关闭设置窗口后仍会在托盘运行，右击托盘图标可退出。
 
-运行 `magic&miracle-安装程序.exe` 后可选择安装位置。安装程序默认创建桌面快捷方式并启用开机自启，这些选项之后也能在软件中修改。
+包含蝶翼、焰羽、青叶、星糖、闪电、云旋六种造型，以及拖尾、点击、滚轮和拖动反馈。应用隐藏系统光标时，特效会随之隐藏。
 
-## 源码说明
+## 从源码构建
 
-项目使用 C# 与 Windows Forms，目标运行环境为 Windows。光标矢量文件位于 `assets/cursor-shapes/vectors`，参考设计位于 `assets/references`。
-
-当前版本：1.4.3
-
-
-## 本地构建
-
-在 Windows 上用 PowerShell 执行下列命令。脚本使用 .NET Framework x64 的 C# 编译器，输出主程序和安装器到 `dist/`。
+项目使用 C# 和 Windows Forms。使用 Windows 自带的 .NET Framework x64 C# 编译器，在项目目录运行：
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\build.ps1
 ```
 
-本机已安装的版本在 `运行` 子目录，双击 `magic&miracle.exe` 即可打开。
+主程序在 `dist/`，单文件安装器在 `发布/`。光标素材和设计参考在 [assets](assets/)，设置与操作细节见 [使用说明](magic%26miracle-说明.txt)。

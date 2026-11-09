@@ -1,15 +1,20 @@
-﻿param()
+﻿param(
+    [string]$OutputDirectory = (Join-Path $PSScriptRoot 'dist'),
+    [string]$ReleaseDirectory = (Join-Path $PSScriptRoot '发布')
+)
 $ErrorActionPreference = 'Stop'
 
 $compiler = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
 if (!(Test-Path -LiteralPath $compiler)) { throw 'The .NET Framework x64 C# compiler is required.' }
-$out = Join-Path $PSScriptRoot 'dist'
+$out = [IO.Path]::GetFullPath($OutputDirectory)
 New-Item -ItemType Directory -Path $out -Force | Out-Null
 $assets = Join-Path $PSScriptRoot 'assets'
 $icon = Join-Path $assets 'magic-miracle-round-v1.ico'
 $avatar = Join-Path $assets 'lazy-sheep-avatar.jpg'
 $app = Join-Path $out 'magic&miracle.exe'
-$installer = Join-Path $out 'magic&miracle-安装程序.exe'
+$release = [IO.Path]::GetFullPath($ReleaseDirectory)
+New-Item -ItemType Directory -Path $release -Force | Out-Null
+$installer = Join-Path $release 'magic&miracle-安装程序.exe'
 
 $common = @('/nologo','/target:winexe','/platform:x64','/optimize+','/codepage:65001',
     '/r:System.Windows.Forms.dll','/r:System.Drawing.dll',("/win32icon:$icon"))
