@@ -11,3 +11,9 @@ obj/
 # Local runtime settings
 settings.ini
 
+
+# Local release builds
+/dist/
+
+# Local installation
+/运行/

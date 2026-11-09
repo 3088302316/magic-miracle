@@ -17,7 +17,7 @@
 
 ## 安装
 
-从 Releases 下载最新版 `magic&miracle-安装程序.exe`，运行后可选择安装位置。安装程序默认创建桌面快捷方式并启用开机自启，这些选项之后也能在软件中修改。
+运行 `magic&miracle-安装程序.exe` 后可选择安装位置。安装程序默认创建桌面快捷方式并启用开机自启，这些选项之后也能在软件中修改。
 
 ## 源码说明
 
@@ -25,3 +25,13 @@
 
 当前版本：1.4.3
 
+
+## 本地构建
+
+在 Windows 上用 PowerShell 执行下列命令。脚本使用 .NET Framework x64 的 C# 编译器，输出主程序和安装器到 `dist/`。
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\build.ps1
+```
+
+本机已安装的版本在 `运行` 子目录，双击 `magic&miracle.exe` 即可打开。
